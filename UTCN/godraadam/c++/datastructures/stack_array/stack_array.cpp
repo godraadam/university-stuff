@@ -61,6 +61,7 @@ class stack {
 
 	//Return item on top of stack, without removing it
 	public: T peek() {
+		if (empty()) throw std::length_error("Stack is empty!");
 		return _stack[head];
 	}
 
