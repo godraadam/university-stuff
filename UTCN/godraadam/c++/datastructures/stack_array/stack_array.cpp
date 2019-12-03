@@ -1,13 +1,8 @@
 /*
 
 Author: godraadam @ UTCN 2019
-Description: basic, generic stack implementation using array as container
-Operations: pop()  -> O(1)
-	    push() -> O(1) 
-	    peek() -> O(1)
-	    empty()-> O(1)
- 	    full() -> O(1)
-	    size() -> O(1)
+Description: basic stack implementation using array as container
+Operations: pop(), push(), peek(), empty(), full(), size(), max_size()
 
 */
 
