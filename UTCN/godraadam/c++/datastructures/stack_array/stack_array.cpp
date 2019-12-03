@@ -1,13 +1,14 @@
 /*
 
-Author: godraadam @ UTCN 2019
-Description: basic, genreic stack implementation using array as container
-Operations:	pop -> O(1)
-		push() -> O(1) 
-		peek() -> O(1)
-		empty()-> O(1)
-		full() -> O(1)
-		size() -> O(1)
+Author: godraadam @ utcn 2019
+Description: basic, generic stack implementation using array as container
+Operations: pop()  -> O(1)
+			push() -> O(1) 
+			peek() -> O(1)
+			empty()-> O(1)
+			full() -> O(1)
+			size() -> O(1)
+
 */
 
 #include <limits>
@@ -15,7 +16,7 @@ Operations:	pop -> O(1)
 
 template<class T>
 
-class stack {
+class stack final {
 
 	//Fields_______________________________________
 
@@ -53,7 +54,7 @@ class stack {
 
 	//Push item on top of stack
 	public: void push(T item) {
-		if (full()) throw std::length_error("Stack is full");
+		if (full()) throw std::length_error("Stack is full!");
 		_stack[++head] = item;
 	}
 
