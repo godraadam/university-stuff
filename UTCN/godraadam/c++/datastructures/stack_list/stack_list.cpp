@@ -1,13 +1,12 @@
 /*
 Author: godraadam @ UTCN 2019
 Description: basic, generic stack implementation using single linked list as container
-Operations: pop()  -> O(1)
-			push() -> O(1) 
-			peek() -> O(1)
-			empty()-> O(1)
-			full() -> O(1)
-			size() -> O(1)
-
+Operations: 	pop()  -> O(1)
+		push() -> O(1) 
+		peek() -> O(1)
+		empty()-> O(1)
+		full() -> O(1)
+		size() -> O(1)
 */
 
 #include <stdexcept>
