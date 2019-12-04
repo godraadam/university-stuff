@@ -74,7 +74,7 @@ class queue final {
 		T ret = tail->item;
 		node* p = tail;
 		tail = p->prev;
-		free(p);
+		delete p;
 		_size--;
 		return ret;
 	}
