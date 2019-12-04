@@ -1,5 +1,4 @@
 /*
-
 Author: godraadam @ utcn 2019
 Description: basic, generic stack implementation using array as container
 Operations: pop()  -> O(1)
@@ -8,10 +7,8 @@ Operations: pop()  -> O(1)
 			empty()-> O(1)
 			full() -> O(1)
 			size() -> O(1)
-
 */
 
-#include <limits>
 #include <stdexcept>
 
 template<class T>
@@ -38,6 +35,7 @@ class stack final {
 	
 	//Constructor with custom maximum size, practical to save memory for smaller scope purposes
 	public: stack(size_t max_size) {
+		if (max_size > this->max_size) throw std::bad_array_new_length("Stack size too large!");
 		this->max_size = max_size;
 		_stack = new T[max_size];
 	}
@@ -55,7 +53,7 @@ class stack final {
 	//Push item on top of stack
 	public: void push(T item) {
 		if (full()) throw std::length_error("Stack is full!");
-		_stack[++head] = item;
+		_stack[head++] = item;
 	}
 
 	//Pop item from top of stack and return it
@@ -67,7 +65,7 @@ class stack final {
 	//Return item on top of stack, without removing it
 	public: T peek() {
 		if (empty()) throw std::length_error("Stack is empty!");
-		return _stack[head];
+		return _stack[head - 1];
 	}
 
 	//Returns current number of items in the stack
