@@ -10,6 +10,7 @@ Operations:
 			push()		-> O(1)
 			append()	-> O(1)
 			insert(i)	-> O(i)
+			set(i)		-> O(i)
 
 			REMOVE OPERATIONS
 			pop()		-> O(1)
@@ -23,6 +24,7 @@ Operations:
 			find()		-> O(n)
 
 			OTHER
+			contains()	-> O(n)
 			empty()		-> O(1)
 			length()	-> O(1)
 			toArray()	-> O(n)
@@ -45,7 +47,6 @@ class list final {
 			this->item = item;
 		}
 	};
-
 
 	//Keeps track of number of items in the list
 	private: size_t len = 0;
@@ -103,7 +104,7 @@ class list final {
 	
 	//Remove item from end of the list end return it
 	public: T trunc() {
-		if (empty()) throw std::length_error("Stack is empty!");
+		if (empty()) throw std::length_error("List is empty!");
 
 		if (len == 1) return pop();
 
@@ -196,7 +197,7 @@ class list final {
 
 	//Returns the item at given index from the list. Indexing from 0
 	public: T at(size_t index) {
-		if (index >= len) throw std::out_of_range("Index was outside range!");
+		if (index < 0 || index >= len) throw std::out_of_range("Index was out of range!");
 
 		node* p;
 		if (index < len / 2) {
@@ -240,6 +241,27 @@ class list final {
 	public: T end() {
 		if (empty()) throw std::length_error("List is empty!");
 		return tail->item;
+	}
+
+	//Changes the value of an item at the given index to the specified value
+	public: void set(size_t index, T item) {
+		if (index < 0 || index >= len) throw std::out_of_range("Index was out of range!");
+
+		node* p;
+		if (index < len / 2) {
+			p = head;
+			for (int i = 0; i < index; i++) p = p->next;
+		}
+		else {
+			p = tail;
+			for (int i = len - 1; i > index; i--) p = p->prev;
+		}
+		p->item = item;
+	}
+	
+	//Returns true only if the item is in the list
+	public: bool contains(T item) {
+		return (int)find(item) >= 0;
 	}
 
 	//Returns an array with equivalent content, order and size of this list
