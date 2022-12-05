@@ -1,6 +1,7 @@
 # university-stuff
 Scuffed data structure implementations in C++
-- [ ] queues
-- [ ] lists
-- [ ] stacks
+- [x] queues
+- [x] lists
+- [x] stacks
+- [x] heaps
 
