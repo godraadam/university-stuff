@@ -1,3 +1,6 @@
 # university-stuff
-Everything I threw together during my years @UTCN
+Scuffed data structure implementations in C++
+- [ ] queues
+- [ ] lists
+- [ ] stacks
 
